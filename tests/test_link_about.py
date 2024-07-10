@@ -14,7 +14,7 @@ from pages.main_page import Main_page
 from pages.payment_page import Payment_page
 
 
-def test_select_product():
+def test_link_about():
     options = Options()
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
@@ -24,19 +24,9 @@ def test_select_product():
     login.authorization()
 
     mp = Main_page(driver)
-    mp.select_product()
+    mp.select_menu_about()
 
-    cp = Cart_page(driver)
-    cp.click_checkout_button()
 
-    cip = Client_inform_page(driver)
-    cip.input_inform()
-
-    p = Payment_page(driver)
-    p.payment()
-
-    f = Finish_page(driver)
-    f.finish()
 
     print('Finish Test')
     driver.quit()
